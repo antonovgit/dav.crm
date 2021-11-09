@@ -52,8 +52,9 @@ class RolesController extends Controller
         //return Role::get()->orderByDesc('id'); //!!!работать не будет. 
         
 		//dd(Role::get()->sortBy('name'));
-
-
+		//В чем разница методов sortBy() и orderBy()?
+		//Метод sortBy() используется для сортировки коллекции, а метод orderBy() используется для сортировки посредством SQL
+		
         /*$role = Role::find(3);
         $role->name = 'Manager';
         $role->save();
@@ -65,5 +66,18 @@ class RolesController extends Controller
         return Role::find(3);*/
 
         Role::find(3)->delete();
+    }
+	
+	/*public function show($roleId, $date) //http://dav.crm/roles/1/321
+	{
+        $role = Role::find($roleId);
+		if (empty($role)) {
+			return response([], 404);
+		}
+		return response()->json(['data' => $role]);
+    }*/
+	public function show(Role $role) //http://dav.crm/roles/1
+	{
+		return response()->json(['data' => $role]);
     }
 }
