@@ -9,7 +9,9 @@ class Role extends Model
 {
     use HasFactory;
 	
-	protected $fillable = ['name'];
+	//protected $fillable = ['name'];
+	
+	protected $guarded = []; //позволяем записывать любые поля в нашу модель
 	
 	/*//https://laravel.com/docs/8.x/routing#customizing-the-default-key-name
 	//Если вы хотите, чтобы привязка модели всегда использовала столбец базы данных, отличный от id, при извлечении данного класса модели, вы можете переопределить метод getRouteKeyName в модели Eloquent:

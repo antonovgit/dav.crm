@@ -7,22 +7,45 @@ use Illuminate\Http\Request;
 
 class RolesController extends Controller
 {
-    public function create() //http://dav.crm/create
+//    public function create() //http://dav.crm/create
+//    {
+//        // //1.
+//		// $role = new Role();
+//        // $role->name = 'Client';
+//        // $role->save();
+//
+//		////2.
+//        // Role::insert(['name' => 'Admin']);
+//
+//		//3.
+//        /*Role::create([
+//            'name' => 'manager',
+//        ]);*/
+//
+//        return response()->json(true);
+//    }
+	
+	public function create(Request $request) //http://dav.crm/roles
     {
-        // //1.
-		// $role = new Role();
-        // $role->name = 'Client';
-        // $role->save();
-
-		////2.
-        // Role::insert(['name' => 'Admin']);
-
-		//3.
-        /*Role::create([
-            'name' => 'manager',
-        ]);*/
-
-        return response()->json(true);
+		//return response()->json($request->input('name')); //input по названию переменной возвращает то что мы туда передали
+		//return response()->json([$request->has('name')]); //has показывает, что данное значение вообще имеется в массиве и возвращает тру, иначе фолс. НО если будет передано пустое значение, то вернет тру..т.е. скажет что значение было передано, но оно пустое. Чтобы отлавливать пустые значения есть метод filled
+		//return response()->json([$request->filled('name')]); //filled вертнет фолс, если была переданна переменная с пустым значением. Если была переданна эта переменная с непустым значением то вертет тру.
+		//!Разница между has и filled. Метод has() проверяет заполнена ли переменная, а filled() проверяет ещё что переменная не пустая
+		
+		//return response()->json([$request->all()]);	//вернет все поля
+		//return response()->json([$request->input()]);	//вернет все поля
+		//return response()->json([$request->only('name')]);	//только поле 'name'
+		//return response()->json([$request->except('name')]);	//все кроме поля 'name'
+		//return response()->json([$request->name]);	//динамическое свойство name
+		//return response()->json([$request->input('name-test')]);	//через input можем забирать любые данные
+		
+		Role::create($request->only('name'));
+	}
+	
+	public function update(Request $request, Role $role)  //http://dav.crm/roles/3
+    {
+        $role->update($request->only('name'));
+        return response()->json($role);
     }
 
     public function index() //http://dav.crm/index
