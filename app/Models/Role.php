@@ -19,4 +19,11 @@ class Role extends Model
     {
         return 'name';
     }*/
+	
+	//Все пользователи, которые относятся к этой роли
+	public function users()
+    {
+        //return $this->hasMany(User::class, 'role_id', 'id'); //поле role_id модели User связывается с полем id модели Role
+        return $this->hasMany(User::class);
+    }
 }
