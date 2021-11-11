@@ -21,7 +21,7 @@ class Authenticate extends Middleware
         }
     }*/
 	
-	//D:\OpS\OpenServer\domains\rdavydov2\Laravel\dav.crm\vendor\laravel\framework\src\Illuminate\Auth\Middleware\Authenticate.php
+	/*//D:\OpS\OpenServer\domains\rdavydov2\Laravel\dav.crm\vendor\laravel\framework\src\Illuminate\Auth\Middleware\Authenticate.php
 	public function handle($request, Closure $next, ...$guards)
     {
         if (!Auth::check()) { //если авторизация не проходит  // check() -вернет истину если пользователь аутентифицирован
@@ -29,5 +29,5 @@ class Authenticate extends Middleware
         }
 
         return $next($request);
-    }
+    }*/
 }
