@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Role;
 use Illuminate\Database\Eloquent\Factories\Factory;
+//use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class UserFactory extends Factory
@@ -23,11 +24,13 @@ class UserFactory extends Factory
             'email' => $this->faker->unique()->safeEmail(),
 			///'user_id' => (rand(1, 5) == 5) ? 1 : 2, //я // крайне редко будет всплывать первый пользователь и восновном все посты будут принадлежать второму
 			//'role_id' => rand(1, 4), //я
-			'role_id' => function () { //В Ларавель есть возможность создавать вместе с одной моделью через фабрику, создавать другую модель через фабрику
+			/*'role_id' => function () { //В Ларавель есть возможность создавать вместе с одной моделью через фабрику, создавать другую модель через фабрику
                 //return Role::orderBy(DB::raw('RAND()'))->first()->id; //сортируем по ф-ции RAND. Все что находится внутри raw будет в сыром виде добавляться  в наш запрос. В итоге через ф-цию RAND будет выбирать(сортировать) роли в рандомном порядке и брать одну по айди
-				return Role::inRandomOrder()->first()->id;
-				//return Role::all()->random(); //Тоже ОК
-            },
+				return Role::inRandomOrder()->first()->id; //inRandomOrder использоваться для случайной сортировки результатов запроса //1 рандомная запись
+				//return Role::inRandomOrder()->first(); //Я //так же работает как и строкой выше,хз нужен ли ->id
+				//return Role::all()->random(); //Я //Тоже ОК  //или использовать метод random для коллекций //https://u.to/M0G8Gw
+            },*/
+			'role_id' => Role::inRandomOrder()->first(), //Я https://laravel.com/docs/8.x/queries#random-ordering
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),

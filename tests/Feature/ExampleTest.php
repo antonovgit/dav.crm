@@ -12,6 +12,7 @@ class ExampleTest extends TestCase
      *
      * @return void
      */
+	//Проверяет что у нашего респонса есть какой то статус и он равен 200
     public function test_example()
     {
         $response = $this->get('/');
