@@ -1,33 +1,42 @@
 <template>
     <div>
-        <h1>
+        <h2>
             {{ title }}
-        </h1>
-        <input type="text" v-model="title">
-        <ul>
-            <li v-for="user in users">{{ user }}</li>
-        </ul>
-        <input type="text" v-model="name">
-		<!--<button type="button" v-on:click="addUser">Add</button>-->
-        <button type="button" @click="addUser">Add</button>
-        <div>
-            <h2>{{ user.name }}</h2>
-            <h2>{{ user.last_name }}</h2>
-        </div>
+        </h2>
+        <!--<User :user="users[0]" text="some text...."></User>-->
+        <!--<User v-for="(user, index) in users" :user="user" text="some text...." v-bind:key="index"></User>-->
+        <!--<User v-for="(user, index) in users" :user="user" text="some text...." v-bind:key="index"/>-->
+        <user-card v-for="(user, index) in users" :user="user" text="some text...." v-bind:key="index"/>
     </div>
 </template>
 
 <script>
+//import User from './User';
+import User from './users/User';
+
 export default {
     name: "Home",
+	components: {
+        //User,
+        'user-card': User,  //говорю что компонент 'user-card' это User
+    },
 	data() {
         return {
             title: 'Crm Helpdesc',
-            users: ['Alex', 'Dima', 'Roma'],
-            user: {
-                name: 'First name',
-                last_name: 'Last name'
-            },
+            users: [
+                {
+                    name: 'Roman',
+                    last_name: 'Davydov'
+                },
+                {
+                    name: 'Dmitriy',
+                    last_name: 'Ivanov'
+                },
+                {
+                    name: 'Alex',
+                    last_name: 'Petrov'
+                },
+            ],
             name: null,
         }
     },

@@ -1,0 +1,20 @@
+<template>
+    <div>
+        <h2>{{ user.name }} {{ user.last_name }}</h2>
+        <p>{{ text }}</p>
+    </div>
+</template>
+
+<script>
+export default {
+    //Для того чтобы сказать компоненте какие параметры можно будет указать на входе, будем использовать свойство props
+	props: ['user', 'text'],
+    name: "User"
+}
+</script>
+
+<style scoped>
+h2 {
+    color: red;
+}
+</style>
