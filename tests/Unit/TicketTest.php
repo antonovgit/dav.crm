@@ -15,54 +15,31 @@ class TicketTest extends TestCase
 	//Этот трейт запускает транзакцию перед каждым методом и делает ролбек для нее
 	use DatabaseTransactions; //Елисеев: этот трейт перед тестом открывает транзакцию..тест проходит и после того как тест выполнился он эту транзакцию откатывает. Соответственно весь мусор, который был записан в БД во время теста откатывается и БД возвращается к первоначальному виду
 	
-	/**
-     * A basic unit test example.
-     *
-     * @return void
-     */
-    public function test_example()
-    {
-        $this->assertTrue(true); //проверяет, что то что мы здесь передаем оно соответствует true
-    }
-	
-	/*//! something → This test did not perform any assertions  D:\OpS\OpenServer\domains\rdavydov2\Laravel\dav.crm\tests\Unit\TicketTest.php:20
-	public function test_something()
-    {
-        
-    }*/
 	
 	//Если вы хотите чтобы метод не запускался, то можем дать название some_action. Т.е. Юнит тест будет запускать только то, что имеет название либо test_  , либо имеет анотацию
 	public function some_action()
     {
         dd('Метод с названием some_action не сработает!!!');
     }
+
+	public function getTestData()
+    {
+        return [
+            [0, true],  //первый раз передаем 0 и ожидаем что будет true
+            [1, false], //второй раз передаем 1 и ожидаем что будет false
+        ];
+    }
 	
 	/**
-	 * @test
-	 *
-	 */
-	/*public function some_action2()
+     * @dataProvider getTestData
+     */
+	public function testIsNew($status, $expectedResult)
     {
-        dd('Метод с названием some_action2, но с анотацией срабатывает');
-    }*/
-	
-	public function test_is_new()
-    {
-        //$this->seed();	//указываем, что нужно запустить сиды
+		//dump($status, $expectedResult);
 		$ticket = Ticket::factory()->create([
-            'status' => 0, //новый
+            'status' => $status,
         ]);
 
-        $this->assertTrue($ticket->isNew());
-    }
-
-	public function test_is_not_new()
-    {
-        //$this->seed();	//указываем, что нужно запустить сиды
-		$ticket = Ticket::factory()->create([
-            'status' => 1,
-        ]);
-
-        $this->assertFalse($ticket->isNew());
+		$this->assertEquals($expectedResult, $ticket->isNew());
     }
 }

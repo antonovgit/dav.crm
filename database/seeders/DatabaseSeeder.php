@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
 		//Ticket::factory()->create(); //вместе с тикетом создаст нового юзера
 		
 		
-		User::factory(1)->admin()->create(); //создадим одного админа, используя метод admin() фабрики UserFactory
+		/*User::factory(1)->admin()->create(); //создадим одного админа, используя метод admin() фабрики UserFactory
 		
 		//!Создас 5 юзеров с ролью Client, к каждом юзеру создаем по три тикета
 		//Предположим, что модель User определяет отношения hasMany с Ticket. Мы можем создать 5 пользователей, каждый из них с тремя тикетами, используя метод has, предоставляемый фабриками Laravel. Метод has принимает экземпляр фабрики.
@@ -41,6 +41,6 @@ class DatabaseSeeder extends Seeder
             ->client()
             ->has(Ticket::factory()->count(3))
             //->has(Ticket::factory()->count(3), 'tickets')  //явно указываем связь tickets
-            ->create();
+            ->create();*/
     }
 }
