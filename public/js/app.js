@@ -2071,8 +2071,42 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "Home"
+  name: "Home",
+  data: function data() {
+    return {
+      title: 'Crm Helpdesc',
+      users: ['Alex', 'Dima', 'Roma'],
+      user: {
+        name: 'First name',
+        last_name: 'Last name'
+      },
+      name: null
+    };
+  },
+  methods: {
+    addUser: function addUser() {
+      this.users.push(this.name); //this.name = null;
+
+      this.clearName();
+    },
+    clearName: function clearName() {
+      this.name = null;
+    }
+  }
 });
 
 /***/ }),
@@ -2088,8 +2122,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-
-console.log('is running'); //Добавляется(регистрируется) комонент. Первый параметр 'home' - это имя компонента, второй - путь к файлу данного компонента
+ //console.log('is running')
+//Добавляется(регистрируется) комонент. Первый параметр 'home' - это имя компонента, второй - путь к файлу данного компонента
 
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].component('home', (__webpack_require__(/*! ./components/Home.vue */ "./resources/js/components/Home.vue")["default"]));
 var app = new vue__WEBPACK_IMPORTED_MODULE_0__["default"]({
@@ -19636,7 +19670,69 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h1", [_vm._v("\n    CRM Helpdesc\n")])
+  return _c("div", [
+    _c("h1", [_vm._v("\n            " + _vm._s(_vm.title) + "\n        ")]),
+    _vm._v(" "),
+    _c("input", {
+      directives: [
+        {
+          name: "model",
+          rawName: "v-model",
+          value: _vm.title,
+          expression: "title",
+        },
+      ],
+      attrs: { type: "text" },
+      domProps: { value: _vm.title },
+      on: {
+        input: function ($event) {
+          if ($event.target.composing) {
+            return
+          }
+          _vm.title = $event.target.value
+        },
+      },
+    }),
+    _vm._v(" "),
+    _c(
+      "ul",
+      _vm._l(_vm.users, function (user) {
+        return _c("li", [_vm._v(_vm._s(user))])
+      }),
+      0
+    ),
+    _vm._v(" "),
+    _c("input", {
+      directives: [
+        {
+          name: "model",
+          rawName: "v-model",
+          value: _vm.name,
+          expression: "name",
+        },
+      ],
+      attrs: { type: "text" },
+      domProps: { value: _vm.name },
+      on: {
+        input: function ($event) {
+          if ($event.target.composing) {
+            return
+          }
+          _vm.name = $event.target.value
+        },
+      },
+    }),
+    _vm._v(" "),
+    _c("button", { attrs: { type: "button" }, on: { click: _vm.addUser } }, [
+      _vm._v("Add"),
+    ]),
+    _vm._v(" "),
+    _c("div", [
+      _c("h2", [_vm._v(_vm._s(_vm.user.name))]),
+      _vm._v(" "),
+      _c("h2", [_vm._v(_vm._s(_vm.user.last_name))]),
+    ]),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
