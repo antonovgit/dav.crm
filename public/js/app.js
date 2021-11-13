@@ -2078,6 +2078,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //import User from './User';
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -2092,13 +2106,24 @@ __webpack_require__.r(__webpack_exports__);
       title: 'Crm Helpdesc',
       users: [{
         name: 'Roman',
-        last_name: 'Davydov'
+        last_name: 'Davydov',
+        role: 'admin'
       }, {
         name: 'Dmitriy',
-        last_name: 'Ivanov'
+        last_name: 'Ivanov',
+        role: 'manager'
       }, {
         name: 'Alex',
-        last_name: 'Petrov'
+        last_name: 'Petrov',
+        role: 'client'
+      }, {
+        name: 'Ivan',
+        last_name: 'Sidorov',
+        role: 'client'
+      }, {
+        name: 'Fedor',
+        last_name: 'Sidorov',
+        role: 'manager'
       }],
       name: null
     };
@@ -2135,10 +2160,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   //Для того чтобы сказать компоненте какие параметры можно будет указать на входе, будем использовать свойство props
   props: ['user', 'text'],
-  name: "User"
+  name: "User",
+  methods: {
+    getClass: function getClass(role) {
+      return 'top-' + role;
+    }
+  }
 });
 
 /***/ }),
@@ -2212,7 +2252,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nh2[data-v-67086f1d] {\r\n    color: red;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.top-admin[data-v-67086f1d] {\r\n    color: green;\n}\n.top-manager[data-v-67086f1d] {\r\n    color: blue;\n}\n.top-client[data-v-67086f1d] {\r\n    color: red;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -20201,7 +20241,7 @@ var render = function () {
   return _c(
     "div",
     [
-      _c("h2", [_vm._v("\n        " + _vm._s(_vm.title) + "\n    ")]),
+      _c("h2", [_vm._v("\n            " + _vm._s(_vm.title) + "\n        ")]),
       _vm._v(" "),
       _vm._l(_vm.users, function (user, index) {
         return _c("user-card", {
@@ -20236,13 +20276,21 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("h2", [
-      _vm._v(_vm._s(_vm.user.name) + " " + _vm._s(_vm.user.last_name)),
-    ]),
-    _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.text))]),
-  ])
+  return _c(
+    "div",
+    [
+      _c("h2", { class: _vm.getClass(_vm.user.role) }, [
+        _vm._v(_vm._s(_vm.user.name) + " " + _vm._s(_vm.user.last_name)),
+      ]),
+      _vm._v(" "),
+      _c("p", [_vm._v(_vm._s(_vm.text))]),
+      _vm._v(" "),
+      _vm.user.role === "client"
+        ? [_c("small", [_vm._v(_vm._s(_vm.user.role))])]
+        : [_c("p", [_vm._v(_vm._s(_vm.user.role))])],
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

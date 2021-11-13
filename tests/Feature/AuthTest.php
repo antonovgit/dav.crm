@@ -55,26 +55,16 @@ class AuthTest extends TestCase
 
         //$response = $this->get('roles');
 		$response = $this->get('home');
-        $response->assertStatus(301);
+        $response->assertStatus(401);
     }
 
     public function testAuthFailed()
     {
         $response = $this->attemptToLogin($this->password . '7');
-        $response->assertStatus(301);
+        $response->assertStatus(401);
 
         //$response = $this->get('roles');
 		$response = $this->get('home');
-        $response->assertStatus(301);
-    }
-
-    public function testRolesAuth()
-    {
-        $response = $this->attemptToLogin($this->password . '7');
-        $response->assertStatus(301);
-
-        //$response = $this->get('roles');
-		$response = $this->get('home');
-        $response->assertStatus(301);
+        $response->assertStatus(401);
     }
 }

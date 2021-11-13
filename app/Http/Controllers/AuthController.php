@@ -19,7 +19,7 @@ class AuthController extends Controller
             return response(true);
         }
 
-        return response(false, 301); //если не получилось авторизоваться
+        return response(false, 401); //если не получилось авторизоваться
     }
 
     public function logout()
