@@ -7,7 +7,7 @@ use Tests\TestCase;
 
 class ValidationTest extends TestCase
 {
-    use WithFaker;
+    use WithFaker;   //для того чтобы использовать фейкер
 	
 	public function testValidationWrongEmail()
     {

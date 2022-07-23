@@ -37,6 +37,6 @@ class UserTest extends TestCase
             'role_id' => $role->id,
         ]);
 
-        $this->assertEquals($expectedResult, $user->hasAnyRole($testRole));
+        $this->assertEquals($expectedResult, $user->hasAnyRole($testRole)); // проверяем что expectedResult равен $user->hasAnyRole($testRole)
     }
 }

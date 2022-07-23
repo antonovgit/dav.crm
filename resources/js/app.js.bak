@@ -15,7 +15,7 @@ Vue.component('home', require('./components/Home.vue').default);
 //let router = new VueRouter({});
 //let router = new VueRouter({routes: routes});
 //let router = new VueRouter({routes});  //или       	 //http://dav.crm/#/
-let router = new VueRouter({ routes, mode: 'history' }); //Чтобы убрать решетку в пути. Теперь будет так: http://dav.crm/   http://dav.crm/users
+let router = new VueRouter({ routes, mode: 'history' }); //Чтобы убрать решетку в пути http://dav.crm/#/
 const app = new Vue({ //const app - это новый экземляр Vue, который привязан к эл с айдишником app
     el: "#app",
 	//router: router

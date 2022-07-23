@@ -30,18 +30,18 @@ class Kernel extends HttpKernel
      */
     protected $middlewareGroups = [
         'web' => [
-            \App\Http\Middleware\EncryptCookies::class,
+            \App\Http\Middleware\EncryptCookies::class,  //расшифровать куки
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
-            \Illuminate\Session\Middleware\StartSession::class,
+            \Illuminate\Session\Middleware\StartSession::class,		//стартовать сессию
             // \Illuminate\Session\Middleware\AuthenticateSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
-            \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            \Illuminate\Routing\Middleware\SubstituteBindings::class,	//отвечает за билдинг модели //!Этот мидлвер отвечает за привязку модели к маршруту
         ],
 
         'api' => [
             // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
-            'throttle:api',
+            'throttle:api', //!ограничит число попыток перехода на ваш сайт
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
     ];
@@ -55,7 +55,7 @@ class Kernel extends HttpKernel
      */
     protected $routeMiddleware = [
         //'auth' => \App\Http\Middleware\Authenticate::class, //было
-        'auth' => \Illuminate\Auth\Middleware\Authenticate::class, //переопределю мидлвер
+        'auth' => \Illuminate\Auth\Middleware\Authenticate::class, //переопределю мидлвер на родительский
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,

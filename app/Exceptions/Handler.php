@@ -44,6 +44,7 @@ class Handler extends ExceptionHandler
 	public function render($request, Throwable $e)
     {
         if ($e instanceof ValidationException) {
+            //return response(true, 422);
             return $this->invalidJson($request, $e);
         }
 

@@ -1,4 +1,5 @@
 <?php
+//Проверяем для каких пользователей что мы получаем. Для Администатора будет выдавать 200, а для всех остальных он будет выдавать 403 ошибку
 
 namespace Tests\Feature;
 
@@ -39,12 +40,13 @@ class CheckRolesTest extends TestCase
             'password' => Hash::make($password), //https://laravel.com/docs/8.x/hashing
         ]);
 
-        $this->post('login', [
+        //Пытаюсь залогиниться
+		$this->post('login', [
             'email' => $user->email,
             'password' => $password
         ]);
 
-        $response = $this->get('roles');
-        $response->assertStatus($expectedCodeResult);
+        $response = $this->get('roles'); //делаю запрос на маршрут с ролями..и ожидаю некоторый статус
+        $response->assertStatus($expectedCodeResult); //..и ожидаю некоторый статус
     }
 }

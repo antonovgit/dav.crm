@@ -22,6 +22,8 @@ class TicketTest extends TestCase
         dd('Метод с названием some_action не сработает!!!');
     }
 
+	//Если мы будем писать тесты для регистрации пользователей и ожидать каких то разных поведений внутри одного теста от разных входящих данных. Соединим эти тесты и сторонней ф-цией зададим значения. И ниже в анотации укажем что должен быть датапровайдер getTestData. Теперь при запуске этого теста, он будет выбирать по очереди эти параметры вместо переменных $status и $expectedResult в testIsNew
+	//Что такое dataProvider? Аннотация, позволяющая подключить функцию для генерации входящих данных для теста
 	public function getTestData()
     {
         return [
@@ -35,7 +37,7 @@ class TicketTest extends TestCase
      */
 	public function testIsNew($status, $expectedResult)
     {
-		//dump($status, $expectedResult);
+		//dump($status, $expectedResult); 0 true 1 false
 		$ticket = Ticket::factory()->create([
             'status' => $status,
         ]);

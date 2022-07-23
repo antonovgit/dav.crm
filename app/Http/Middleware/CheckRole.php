@@ -22,7 +22,7 @@ class CheckRole
 		/*if (Auth::user()->hasAnyRole('admin')) { //проверяю что у меня есть роль 'admin'
             return $next($request);
         }*/
-		if (Auth::user()->hasAnyRole($roles)) {
+		if (Auth::user()->hasAnyRole($roles)) { //укажем параметром $roles какую роль ему проверять..не только жестко админ
             return $next($request);
         }
 

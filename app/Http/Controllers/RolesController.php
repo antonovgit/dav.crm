@@ -118,7 +118,7 @@ class RolesController extends Controller
 	public function users(Role $role) //http://dav.crm/roles/1/users
     {
         //return $role;
-        //return User::where('role_id', $role->id)->get(); //Уберем этот код в модель Role и ниже наишем уже через связь users()
+        //return User::where('role_id', $role->id)->get(); //получим всех пользователей, которые относятся к данной роли //Уберем этот код в модель Role..создадим связь users() и ниже напишем уже через эту связь users()
         //return $role->users()->get(); //Получим тоже самое что и строчкой выше //связь как метод
         //return $role->users; //Получим тоже самое что и строчкой выше //связь как проперти(свойство)
         

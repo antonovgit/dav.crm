@@ -92,8 +92,8 @@ Route::get('logout', [AuthController::class, 'logout']);
 
 Route::middleware(['auth'])->group(function () {
 	//Route::middleware(['roles'])->group(function () {
-	//Route::middleware(['roles:admin,manager'])->group(function () { //!
-	Route::middleware(['roles:admin'])->group(function () { //!
+	//Route::middleware(['roles:admin,manager'])->group(function () {  //! укажем мидлверу roles какую роль ему проверять 
+	Route::middleware(['roles:admin'])->group(function () {  //! укажем мидлверу roles какую роль ему проверять 
 		Route::get('roles', [RolesController::class, 'index']);
         Route::post('roles', [RolesController::class, 'create']);
         Route::put('roles/{role}', [RolesController::class, 'update']);
