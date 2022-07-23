@@ -2113,6 +2113,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   //Для того чтобы сказать компоненте какие параметры можно будет указать на входе, будем использовать свойство props
   props: ['user', 'text'],
@@ -2147,6 +2148,50 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "AdminPage"
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/UserPage.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/UserPage.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "UserPage",
+  data: function data() {
+    return {
+      userName: null
+    };
+  },
+
+  /*methods: {
+         loadName() {
+  		//this.userName = '123321';
+  		//console.log(this.$route.params);
+  		this.userName = this.$route.params.name;
+  	},
+     },*/
+  //чтобы этот параметр он записывал прямо в свойство
+  //В mounted мы можем добавить какие то действия, которые будут происходить тогда, когда у нас компонента только только загружается
+  mounted: function mounted() {
+    //mounted срабатывает каждый раз при загрузки компоненты
+    //this.loadName();
+    this.userName = this.$route.params.name;
+  }
 });
 
 /***/ }),
@@ -2236,12 +2281,13 @@ vue__WEBPACK_IMPORTED_MODULE_1__["default"].use(vue_router__WEBPACK_IMPORTED_MOD
 
 vue__WEBPACK_IMPORTED_MODULE_1__["default"].component('home', (__webpack_require__(/*! ./components/Home.vue */ "./resources/js/components/Home.vue")["default"])); //let router = new VueRouter({});
 //let router = new VueRouter({routes: routes});
-//let router = new VueRouter({routes});  //или
+//let router = new VueRouter({routes});  //или       	 //http://dav.crm/#/
 
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]({
   routes: _routes__WEBPACK_IMPORTED_MODULE_0__["default"],
   mode: 'history'
-});
+}); //Чтобы убрать решетку в пути. Теперь будет так: http://dav.crm/   http://dav.crm/users
+
 var app = new vue__WEBPACK_IMPORTED_MODULE_1__["default"]({
   //const app - это новый экземляр Vue, который привязан к эл с айдишником app
   el: "#app",
@@ -2294,15 +2340,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _pages_UsersList_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pages/UsersList.vue */ "./resources/js/pages/UsersList.vue");
-/* harmony import */ var _pages_AdminPage_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pages/AdminPage.vue */ "./resources/js/pages/AdminPage.vue");
+/* harmony import */ var _pages_UserPage_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pages/UserPage.vue */ "./resources/js/pages/UserPage.vue");
+/* harmony import */ var _pages_AdminPage_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/AdminPage.vue */ "./resources/js/pages/AdminPage.vue");
+
 
 
 var routes = [{
   path: '/users',
   component: _pages_UsersList_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
 }, {
+  path: '/users/:name',
+  component: _pages_UserPage_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+}, {
   path: '/admin',
-  component: _pages_AdminPage_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  component: _pages_AdminPage_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
 }];
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (routes);
 
@@ -20255,6 +20306,50 @@ component.options.__file = "resources/js/pages/AdminPage.vue"
 
 /***/ }),
 
+/***/ "./resources/js/pages/UserPage.vue":
+/*!*****************************************!*\
+  !*** ./resources/js/pages/UserPage.vue ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _UserPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UserPage.vue?vue&type=script&lang=js& */ "./resources/js/pages/UserPage.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _UserPage_vue_vue_type_custom_index_0_blockType_div__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UserPage.vue?vue&type=custom&index=0&blockType=div */ "./resources/js/pages/UserPage.vue?vue&type=custom&index=0&blockType=div");
+/* harmony import */ var _UserPage_vue_vue_type_custom_index_0_blockType_div__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_UserPage_vue_vue_type_custom_index_0_blockType_div__WEBPACK_IMPORTED_MODULE_2__);
+var render, staticRenderFns
+;
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  _UserPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"],
+  render,
+  staticRenderFns,
+  false,
+  null,
+  "bcee3afa",
+  null
+  
+)
+
+/* custom blocks */
+;
+if (typeof (_UserPage_vue_vue_type_custom_index_0_blockType_div__WEBPACK_IMPORTED_MODULE_2___default()) === 'function') _UserPage_vue_vue_type_custom_index_0_blockType_div__WEBPACK_IMPORTED_MODULE_2___default()(component)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/UserPage.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/pages/UsersList.vue":
 /*!******************************************!*\
   !*** ./resources/js/pages/UsersList.vue ***!
@@ -20342,6 +20437,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/pages/UserPage.vue?vue&type=script&lang=js&":
+/*!******************************************************************!*\
+  !*** ./resources/js/pages/UserPage.vue?vue&type=script&lang=js& ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./UserPage.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/UserPage.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserPage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/pages/UsersList.vue?vue&type=script&lang=js&":
 /*!*******************************************************************!*\
   !*** ./resources/js/pages/UsersList.vue?vue&type=script&lang=js& ***!
@@ -20418,6 +20529,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminPage_vue_vue_type_template_id_650af776_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AdminPage_vue_vue_type_template_id_650af776_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./AdminPage.vue?vue&type=template&id=650af776&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/pages/AdminPage.vue?vue&type=template&id=650af776&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/UserPage.vue?vue&type=custom&index=0&blockType=div":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/pages/UserPage.vue?vue&type=custom&index=0&blockType=div ***!
+  \*******************************************************************************/
+/***/ (() => {
+
 
 
 /***/ }),
@@ -20516,6 +20637,10 @@ var render = function () {
       _vm.user.role === "client"
         ? [_c("small", [_vm._v(_vm._s(_vm.user.role))])]
         : [_c("p", [_vm._v(_vm._s(_vm.user.role))])],
+      _vm._v(" "),
+      _c("router-link", { attrs: { to: "/users/" + _vm.user.name } }, [
+        _vm._v("User's page"),
+      ]),
     ],
     2
   )
